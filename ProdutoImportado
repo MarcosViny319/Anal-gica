@@ -1,0 +1,27 @@
+package analogica;
+
+class ProdutoImportado extends Produto {
+
+    private float taxaImportacao;
+
+    public ProdutoImportado(String n, float p, int e, float taxa) {
+        super(n, p, e);
+        this.taxaImportacao = taxa;
+    }
+
+    public float getTaxaImportacao() {
+        return taxaImportacao;
+    }
+
+    @Override
+    public void vender(int qtd) {
+
+        float precoFinal =
+                getPreco() + (getPreco() * taxaImportacao);
+
+        System.out.println("Produto importado.");
+        System.out.println("Preço com taxa: " + precoFinal);
+
+        super.vender(qtd);
+    }
+}
