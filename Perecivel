@@ -1,0 +1,28 @@
+package analogica;
+
+class Perecivel extends Produto {
+
+    private String dataValidade;
+
+    public Perecivel(String n, float p, int e, String data) {
+        super(n, p, e);
+        this.dataValidade = data;
+    }
+
+    public String getDataValidade() {
+        return dataValidade;
+    }
+
+    @Override
+    public void vender(int qtd) {
+
+        System.out.println("Verificando validade...");
+
+        if (getEstoque() > 0) {
+            super.vender(qtd);
+            System.out.println("Item perecível vendido.");
+        } else {
+            System.out.println("Produto vencido ou sem estoque.");
+        }
+    }
+}
